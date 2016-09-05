@@ -130,7 +130,7 @@ bool Project::warnSave()
 			m_app,
 			tr("Save existing project"),
 			tr("Do you want to save the existing project, ") + m_pInfo->projectName() +
-			tr("before continuing?"),
+			tr(" before continuing?"),
 			QFlags<QMessageBox::StandardButton>(
 			(QMessageBox::StandardButton::Yes) |
 			(QMessageBox::StandardButton::No)  | 

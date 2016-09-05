@@ -191,12 +191,6 @@
     <ClCompile Include="DockWidget_Base.cpp">
       <Filter>Source Files\Main Window\Dock Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_PersonInformation.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_PersonInformation.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_Base.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -225,6 +219,12 @@
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_People.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_PersonInformation.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_PersonInformation.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>

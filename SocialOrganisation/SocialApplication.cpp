@@ -1,7 +1,7 @@
 #include "SocialApplication.h"
 #include "SocialMenuBar.h"
 
-#include "PersonWidget.h"
+#include "DockWidget_People.h"
 
 #include "EditPreferencesDialog.h"
 
@@ -39,7 +39,7 @@ ApplicationWindow::~ApplicationWindow()
 
 void ApplicationWindow::createDockWindows()
 {
-	m_dockViews.insert("People",new PersonWidget(m_proj,this));
+	m_dockViews.insert("People",new DockWidget_People(m_proj,this));
 
 	QDockWidget * peopleDock = new QDockWidget(tr("People"), this);
 	peopleDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);

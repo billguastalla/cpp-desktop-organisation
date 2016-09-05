@@ -8,7 +8,7 @@ class ViewWidget_PersonInformation : public ViewWidget_Base
 {
 	Q_OBJECT
 public:
-	ViewWidget_PersonInformation(Person * pers, Project * m_proj, ApplicationWindow * parent);
+	ViewWidget_PersonInformation(Project * m_proj, ApplicationWindow * parent);
 
 	public slots:
 		void setCurrentPerson(Person*);
