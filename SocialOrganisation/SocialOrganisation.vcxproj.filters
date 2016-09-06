@@ -98,9 +98,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GeneratedFiles\qrc_applicationwindow.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="Person.cpp">
       <Filter>Source Files\People</Filter>
     </ClCompile>
@@ -227,11 +224,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_PersonInformation.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_SocialOrganisation.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="applicationwindow.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="EditPreferencesDialog.h">
       <Filter>Header Files\Dialogs</Filter>
     </CustomBuild>
@@ -267,6 +264,9 @@
     </CustomBuild>
     <CustomBuild Include="DockWidget_People.h">
       <Filter>Header Files\Main Window\Dock Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SocialOrganisation.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

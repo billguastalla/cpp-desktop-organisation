@@ -1,4 +1,5 @@
 #include "NewProjectDialog.h"
+#include "SocialApplication.h"
 
 #include "ProjectInfo.h"
 #include "ProjectPropertiesWidget.h"
@@ -6,7 +7,8 @@
 #include <qdialogbuttonbox.h>
 #include <qgridlayout.h>
 
-NewProjectDialog::NewProjectDialog(ProjectInfo * proj, QWidget * parent)
+NewProjectDialog::NewProjectDialog(ProjectInfo * proj, ApplicationWindow * parent)
+	: QDialog(parent)
 {
 	m_project = proj;
 

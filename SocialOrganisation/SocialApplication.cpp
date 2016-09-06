@@ -26,10 +26,15 @@ ApplicationWindow::ApplicationWindow(QWidget *parent)
 
 	createDockWindows();
 
+
 	setWindowTitle("Social Organisation");
 	setMinimumSize(1280,720);
 
 	setCentralWidget(new QWidget(this));
+
+	QIcon ico("C:\\GIT\\SocialOrganisation\\SocialOrganisation\\images\\SocialOrganisation.png");
+	setWindowIcon(ico);
+	
 }
 
 ApplicationWindow::~ApplicationWindow()

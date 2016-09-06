@@ -1,4 +1,5 @@
 <RCC>
     <qresource prefix="ApplicationWindow">
+        <file>images/SocialOrganisation48.png</file>
     </qresource>
 </RCC>
