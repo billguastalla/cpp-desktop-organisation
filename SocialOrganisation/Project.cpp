@@ -3,7 +3,7 @@
 #include "FileIO.h"
 
 #include "SocialApplication.h"
-#include "NewProjectDialog.h"
+#include "ProjectDialog.h"
 
 #include <qmessagebox.h>
 #include <qfile.h>
@@ -11,7 +11,7 @@
 
 #include <qxmlstream.h>
 
-Project::Project(ApplicationWindow * parent)
+Project::Project(SocialApplication * parent)
 	: SerialisableObject(nullptr), QObject(parent),
 	m_pInfo(nullptr), m_state(ProjectState::FileClosed), m_currentPath()
 {
@@ -23,12 +23,12 @@ bool Project::createNewFile()
 	if(warnSave())
 	{
 		ProjectInfo * projectInfo = new ProjectInfo(this);
-		NewProjectDialog * newProjDlg = new NewProjectDialog(projectInfo,m_app);
+		ProjectDialog * newProjDlg = new ProjectDialog(projectInfo,m_app);
 		if(newProjDlg->exec() == QDialog::Accepted)
 		{
 			delete m_pInfo;
 			m_pInfo = projectInfo;
-			m_state = ProjectState::FileNotSaved;
+			m_state = ProjectState::FileCreated;
 			emit projectStateChanged(m_state);
 			return true;
 		}
@@ -123,7 +123,7 @@ bool Project::closeProject(bool silent)
 
 bool Project::warnSave()
 {
-	if(m_pInfo != nullptr && (m_state == ProjectState::FileNotSaved || m_state == ProjectState::FileModified))
+	if(m_pInfo != nullptr && (m_state == ProjectState::FileCreated || m_state == ProjectState::FileModified))
 	{
 		// save current project?
 		switch(QMessageBox::question(

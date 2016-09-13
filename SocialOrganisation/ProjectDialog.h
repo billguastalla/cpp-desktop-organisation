@@ -2,14 +2,14 @@
 
 class ProjectInfo;
 class ProjectPropertiesWidget;
-class ApplicationWindow;
+class SocialApplication;
 
 class QDialogButtonBox;
-class NewProjectDialog : public QDialog
+class ProjectDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	NewProjectDialog(ProjectInfo * proj, ApplicationWindow * parent);
+	ProjectDialog(ProjectInfo * proj, QWidget * parent);
 
 
 private:

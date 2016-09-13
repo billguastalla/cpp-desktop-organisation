@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="ApplicationWindow">
+    <qresource prefix="SocialApplication">
         <file>images/SocialOrganisation48.png</file>
     </qresource>
 </RCC>

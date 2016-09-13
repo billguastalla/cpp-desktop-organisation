@@ -2,9 +2,10 @@
 #include "SocialApplication.h"
 #include "Project.h"
 
-#include "EditPreferencesDialog.h"
+#include "ProjectDialog.h"
+#include "PreferencesDialog.h"
 
-SocialMenuBar::SocialMenuBar(Project * proj, ApplicationWindow * parent)
+SocialMenuBar::SocialMenuBar(Project * proj, SocialApplication * parent)
 	: QMenuBar(parent),
 	m_proj(proj),
 	m_app(parent)
@@ -47,7 +48,7 @@ void SocialMenuBar::createActions()
 	m_fileActions[FileActions::Exit] = new QAction(tr("&Exit"), this);
 	m_fileActions[FileActions::Exit]->setShortcuts(QKeySequence::Close);
 	m_fileActions[FileActions::Exit]->setStatusTip(tr("Close the program"));
-	connect(m_fileActions[FileActions::Exit], &QAction::triggered, m_app, &ApplicationWindow::close);
+	connect(m_fileActions[FileActions::Exit], &QAction::triggered, m_app, &SocialApplication::close);
 
 	// Edit
 	m_editActions[EditActions::Preferences] = new QAction(tr("&Preferences"), this);
@@ -88,13 +89,15 @@ void SocialMenuBar::createMenus()
 
 void SocialMenuBar::preferencesEdit()
 {
-	EditPreferencesDialog * dlg = new EditPreferencesDialog(this);
+	PreferencesDialog * dlg = new PreferencesDialog(this);
 	dlg->exec();
 }
 
 void SocialMenuBar::propertiesEdit()
 {
 	// Open properties for the current project.
+	ProjectDialog * dlg = new ProjectDialog(m_proj->data(), this);
+	dlg->exec();
 }
 
 void SocialMenuBar::updateMenuBar(ProjectState state)
@@ -105,21 +108,53 @@ void SocialMenuBar::updateMenuBar(ProjectState state)
 		m_fileActions[FileActions::Save]->setEnabled(false);
 		m_fileActions[FileActions::SaveAs]->setEnabled(false);
 		m_fileActions[FileActions::CloseProject]->setEnabled(false);
+		{
+			QMapIterator<ProjectActions,QAction*> projectActionIter(m_projectActions);
+			while(projectActionIter.hasNext())
+			{
+				projectActionIter.next();
+				m_projectActions[projectActionIter.key()]->setEnabled(false);
+			}
+		}
 		break;
-	case ProjectState::FileNotSaved:
+	case ProjectState::FileCreated:
 		m_fileActions[FileActions::Save]->setEnabled(false);
 		m_fileActions[FileActions::SaveAs]->setEnabled(true);
 		m_fileActions[FileActions::CloseProject]->setEnabled(true);
+		{
+			QMapIterator<ProjectActions,QAction*> projectActionIter(m_projectActions);
+			while(projectActionIter.hasNext())
+			{
+				projectActionIter.next();
+				m_projectActions[projectActionIter.key()]->setEnabled(true);
+			}
+		}
 		break;
 	case ProjectState::FileOpen:
 		m_fileActions[FileActions::Save]->setEnabled(false);
 		m_fileActions[FileActions::SaveAs]->setEnabled(true);
 		m_fileActions[FileActions::CloseProject]->setEnabled(true);
+		{
+			QMapIterator<ProjectActions,QAction*> projectActionIter(m_projectActions);
+			while(projectActionIter.hasNext())
+			{
+				projectActionIter.next();
+				m_projectActions[projectActionIter.key()]->setEnabled(true);
+			}
+		}
 		break;
 	case ProjectState::FileModified:
 		m_fileActions[FileActions::Save]->setEnabled(true);
 		m_fileActions[FileActions::SaveAs]->setEnabled(true);
 		m_fileActions[FileActions::CloseProject]->setEnabled(true);
+		{
+			QMapIterator<ProjectActions,QAction*> projectActionIter(m_projectActions);
+			while(projectActionIter.hasNext())
+			{
+				projectActionIter.next();
+				m_projectActions[projectActionIter.key()]->setEnabled(true);
+			}
+		}
 		break;
 	default:
 		break;

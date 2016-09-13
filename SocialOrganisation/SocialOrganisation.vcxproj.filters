@@ -107,15 +107,6 @@
     <ClCompile Include="SerialisableObject.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="EditPreferencesDialog.cpp">
-      <Filter>Source Files\Main Window\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_EditPreferencesDialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_EditPreferencesDialog.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_PersonDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -128,12 +119,6 @@
     <ClCompile Include="FileIO.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
-    <ClCompile Include="NewProjectDialog.cpp">
-      <Filter>Source Files\Main Window\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="EditProjectPropertiesDialog.cpp">
-      <Filter>Source Files\Main Window\Dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="ProjectPropertiesWidget.cpp">
       <Filter>Source Files\Main Window\Dialogs</Filter>
     </ClCompile>
@@ -141,12 +126,6 @@
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_ProjectPropertiesWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_NewProjectDialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_NewProjectDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_Base.cpp">
@@ -227,18 +206,39 @@
     <ClCompile Include="GeneratedFiles\qrc_SocialOrganisation.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="TabManager.cpp">
+      <Filter>Source Files\Main Window\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TabManager.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TabManager.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectDialog.cpp">
+      <Filter>Source Files\Main Window\Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ProjectDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_PreferencesDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_PreferencesDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="PreferencesDialog.cpp">
+      <Filter>Source Files\Main Window\Dialogs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="EditPreferencesDialog.h">
-      <Filter>Header Files\Dialogs</Filter>
-    </CustomBuild>
     <CustomBuild Include="PersonDialog.h">
       <Filter>Header Files\Main Window\Dock Widgets</Filter>
     </CustomBuild>
     <CustomBuild Include="ProjectPropertiesWidget.h">
-      <Filter>Header Files\Dialogs\Project</Filter>
-    </CustomBuild>
-    <CustomBuild Include="NewProjectDialog.h">
       <Filter>Header Files\Dialogs\Project</Filter>
     </CustomBuild>
     <CustomBuild Include="DockWidget_Base.h">
@@ -268,11 +268,20 @@
     <CustomBuild Include="SocialOrganisation.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="TabManager.h">
+      <Filter>Header Files\Main Window\Central Widget\Views</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Person.h">
+      <Filter>Header Files\People</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ProjectDialog.h">
+      <Filter>Header Files\Dialogs\Project</Filter>
+    </CustomBuild>
+    <CustomBuild Include="PreferencesDialog.h">
+      <Filter>Header Files\Dialogs</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Person.h">
-      <Filter>Header Files\People</Filter>
-    </ClInclude>
     <ClInclude Include="SerialisableObject.h">
       <Filter>Header Files\FileIO</Filter>
     </ClInclude>
@@ -281,9 +290,6 @@
     </ClInclude>
     <ClInclude Include="FileIO.h">
       <Filter>Header Files\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="EditProjectPropertiesDialog.h">
-      <Filter>Header Files\Dialogs\Project</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

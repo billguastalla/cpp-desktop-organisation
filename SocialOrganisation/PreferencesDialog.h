@@ -4,11 +4,11 @@ class QWidget;
 class QTabWidget;
 class QDialogButtonBox;
 
-class EditPreferencesDialog : public QDialog
+class PreferencesDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	EditPreferencesDialog(QWidget * parent = nullptr);
+	PreferencesDialog(QWidget * parent = nullptr);
 
 
 private:

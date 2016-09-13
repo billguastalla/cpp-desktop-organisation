@@ -1,14 +1,15 @@
+#pragma once
 #include <qwidget.h>
 
 class Project;
-class ApplicationWindow;
+class TabManager;
 
 class ViewWidget_Base : public QWidget
 {
 	Q_OBJECT
 public:
-	ViewWidget_Base(Project * m_proj, ApplicationWindow * parent);
+	ViewWidget_Base(Project * m_proj, TabManager * parent);
 
-private:
+protected:
 	Project * m_proj;
 };

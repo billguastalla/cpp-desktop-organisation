@@ -29,7 +29,7 @@ DockWidget_People::DockWidget_People(Project * proj, QWidget * parent) : DockWid
 	connect(m_addPerson,		 SIGNAL(clicked()), this, SLOT(	addPerson()));
 	connect(m_removePerson,		 SIGNAL(clicked()), this, SLOT(	removePerson()));
 
-	connect(m_personList, SIGNAL(/*double clicked*/), this, SLOT(openPersonDetails()));
+	connect(m_personList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(sendPersonToEdit(QListWidgetItem*)));
 
 	connect(m_proj, SIGNAL(projectStateChanged(ProjectState)), this, SLOT(updateWidget(ProjectState)));
 	updateWidget(m_proj->state());
@@ -46,7 +46,10 @@ void DockWidget_People::addPerson()
 		Person * p = dlg->constructPerson();
 
 		m_proj->data()->people().insert(p->id(),p);
-		m_personList->addItem(p->fullName());
+
+		QListWidgetItem * itm = new QListWidgetItem(p->fullName());
+		itm->setData(Qt::UserRole,QVariant::fromValue<void*>(p));
+		m_personList->addItem(itm);
 	}
 }
 
@@ -63,7 +66,7 @@ void DockWidget_People::updateWidget(ProjectState state)
 	case ProjectState::FileClosed:
 		setEnabled(false);
 		break;
-	case ProjectState::FileNotSaved:
+	case ProjectState::FileCreated:
 	case ProjectState::FileOpen:
 	case ProjectState::FileModified:
 	default:
@@ -73,8 +76,16 @@ void DockWidget_People::updateWidget(ProjectState state)
 			while(pplIter.hasNext())
 			{
 				pplIter.next();
-				m_personList->addItem(pplIter.value()->fullName());
+				QListWidgetItem * itm = new QListWidgetItem(pplIter.value()->fullName());
+				itm->setData(Qt::UserRole,QVariant::fromValue<void*>(pplIter.value()));
+				m_personList->addItem(itm);
 			}
 		}
 	}
+}
+
+void DockWidget_People::sendPersonToEdit(QListWidgetItem * item)
+{
+	Person * pers = (Person*)item->data(Qt::UserRole).value<void*>();
+	emit editPerson(pers,pers->id());
 }

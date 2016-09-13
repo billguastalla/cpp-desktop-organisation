@@ -2,12 +2,12 @@
 #include "SerialisableObject.h"
 
 class ProjectInfo;
-class ApplicationWindow;
+class SocialApplication;
 
 enum class ProjectState
 {
 	FileClosed,			// No file is open..
-	FileNotSaved,		// New file created, but has never been saved to disk.
+	FileCreated,		// New file created, but has never been saved to disk.
 	FileOpen,			// File is open, and unchanged
 	FileModified,		// File is open and has been modified.
 };
@@ -16,7 +16,7 @@ class Project : public QObject, public SerialisableObject
 {
 	Q_OBJECT
 public:
-	Project(ApplicationWindow * parent);
+	Project(SocialApplication * parent);
 	ProjectInfo * data() { return m_pInfo; }
 	ProjectState state() { return m_state; }
 
@@ -47,5 +47,5 @@ private:
 
 	ProjectInfo * m_pInfo;
 
-	ApplicationWindow * m_app;
+	SocialApplication * m_app;
 };

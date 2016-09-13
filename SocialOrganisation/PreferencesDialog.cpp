@@ -1,10 +1,10 @@
-#include "EditPreferencesDialog.h"
+#include "PreferencesDialog.h"
 
 #include <qtabwidget.h>
 #include <qdialogbuttonbox.h>
 #include <qgridlayout.h>
 
-EditPreferencesDialog::EditPreferencesDialog(QWidget * parent) : QDialog(parent)
+PreferencesDialog::PreferencesDialog(QWidget * parent) : QDialog(parent)
 {
 	setWindowTitle("Preferences");
 

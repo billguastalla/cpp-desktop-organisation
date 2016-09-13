@@ -1,5 +1,5 @@
-#include "NewProjectDialog.h"
-#include "SocialApplication.h"
+#include "ProjectDialog.h"
+//#include "SocialApplication.h"
 
 #include "ProjectInfo.h"
 #include "ProjectPropertiesWidget.h"
@@ -7,7 +7,7 @@
 #include <qdialogbuttonbox.h>
 #include <qgridlayout.h>
 
-NewProjectDialog::NewProjectDialog(ProjectInfo * proj, ApplicationWindow * parent)
+ProjectDialog::ProjectDialog(ProjectInfo * proj, QWidget * parent)
 	: QDialog(parent)
 {
 	m_project = proj;
@@ -26,7 +26,7 @@ NewProjectDialog::NewProjectDialog(ProjectInfo * proj, ApplicationWindow * paren
 	setLayout(lay);
 }
 
-void NewProjectDialog::save()
+void ProjectDialog::save()
 {
 	m_projectPropsWid->save();
 	accept();

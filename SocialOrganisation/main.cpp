@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	a.processEvents();
 
 
-	ApplicationWindow w;
+	SocialApplication w;
 	w.show();
 	splash.finish(&w);
 	return a.exec();

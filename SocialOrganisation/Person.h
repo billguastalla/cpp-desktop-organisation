@@ -12,6 +12,9 @@ public:
 	Person(const Person & other);
 
 	QString fullName() { return m_firstName + " " + m_lastName; }
+	QString fName() {return m_firstName;}
+	QString lName() {return m_lastName;}
+
 	const QDateTime & dateOfBirth() { return m_dob; }
 
 	const QString & id() { return m_id; }

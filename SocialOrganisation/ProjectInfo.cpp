@@ -67,7 +67,6 @@ bool ProjectInfo::__writeToFile(QXmlStreamWriter & writer)
 		peopleIter.value()->__writeToFile(writer);
 	}
 	writer.writeEndElement();
-	//
 
 	// Anything new to write to file goes here..
 

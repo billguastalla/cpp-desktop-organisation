@@ -2,7 +2,7 @@
 
 class Project;
 enum class ProjectState;
-class ApplicationWindow;
+class SocialApplication;
 
 enum class FileActions
 {
@@ -28,7 +28,7 @@ class SocialMenuBar : public QMenuBar
 {
 	Q_OBJECT
 public:
-	SocialMenuBar(Project * proj, ApplicationWindow * parent);
+	SocialMenuBar(Project * proj, SocialApplication * parent);
 
 private:
 	void createMenus();
@@ -51,5 +51,5 @@ private:
 		void propertiesEdit();
 private:
 	Project				 * m_proj;
-	ApplicationWindow	 * m_app;
+	SocialApplication	 * m_app;
 };
