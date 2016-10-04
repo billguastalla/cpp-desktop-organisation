@@ -1,5 +1,4 @@
 <RCC>
-    <qresource prefix="SocialApplication">
-        <file>images/SocialOrganisation48.png</file>
+    <qresource prefix="SocialOrganisation">
     </qresource>
 </RCC>

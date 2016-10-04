@@ -1,5 +1,6 @@
 #include "SocialApplication.h"
 #include "SocialMenuBar.h"
+#include "SocialSystemTray.h"
 
 #include "DockWidget_People.h"
 
@@ -20,9 +21,17 @@
 
 #include <qtabwidget.h>
 
+#include <qevent.h>
+
 SocialApplication::SocialApplication(QWidget *parent)
 	: QMainWindow(parent)
 {
+	QIcon ico("C:\\GIT\\SocialOrganisation\\SocialOrganisation\\images\\SocialOrganisation.png"); // This should be relative to the executable.
+	setWindowIcon(ico);
+	setMinimumSize(1280,720);
+	setWindowTitle("Social Organisation");
+
+
 	m_proj = new Project(this);
 
 	m_menuBar = new SocialMenuBar(m_proj, this);
@@ -31,13 +40,11 @@ SocialApplication::SocialApplication(QWidget *parent)
 	m_tabManager = new TabManager(m_proj,this);
 	setCentralWidget(m_tabManager);
 
-	
 	createDockWindows();
 	
-	QIcon ico("C:\\GIT\\SocialOrganisation\\SocialOrganisation\\images\\SocialOrganisation.png");
-	setWindowIcon(ico);
-	setMinimumSize(1280,720);
-	setWindowTitle("Social Organisation");
+	m_trayIcon = new SocialSystemTray(this);
+	m_trayIcon->show();
+
 }
 
 SocialApplication::~SocialApplication()
@@ -56,6 +63,19 @@ void SocialApplication::createDockWindows()
 
 	connect(m_dockViews["People"],SIGNAL(editPerson(Person*, const QString&)), m_tabManager, SLOT(createTab(Person*, const QString&)));
 
+}
+
+void SocialApplication::closeEvent(QCloseEvent *event)
+{
+    if (m_trayIcon->isVisible()) {
+        QMessageBox::information(this, tr("Systray"),
+                                 tr("The program will keep running in the "
+                                    "system tray. To terminate the program, "
+                                    "choose <b>Quit</b> in the context menu "
+                                    "of the system tray entry."));
+        hide();
+        event->ignore();
+    }
 }
 
 void SocialApplication::close()

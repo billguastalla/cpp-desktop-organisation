@@ -96,15 +96,30 @@
     <Filter Include="Header Files\Main Window\Menu Bar">
       <UniqueIdentifier>{0eedcc92-87ea-4374-a1d9-b89010c46772}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Main Window\System Tray">
+      <UniqueIdentifier>{c7aca6c2-3a92-4560-8eb0-3532743abb5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main Window\System Tray">
+      <UniqueIdentifier>{e743b980-9c7a-48ad-b285-2d519b7bf3e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Person.cpp">
-      <Filter>Source Files\People</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files\__Main</Filter>
     </ClCompile>
-    <ClCompile Include="SerialisableObject.cpp">
+    <ClCompile Include="SocialApplication.cpp">
+      <Filter>Source Files\Main Window</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_SocialOrganisation.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SocialApplication.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SocialApplication.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIO.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_PersonDialog.cpp">
@@ -113,25 +128,10 @@
     <ClCompile Include="GeneratedFiles\Release\moc_PersonDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="ProjectInfo.cpp">
-      <Filter>Source Files\Data\Project</Filter>
-    </ClCompile>
-    <ClCompile Include="FileIO.cpp">
-      <Filter>Source Files\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjectPropertiesWidget.cpp">
-      <Filter>Source Files\Main Window\Dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectPropertiesWidget.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_PreferencesDialog.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ProjectPropertiesWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_Base.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_Base.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_PreferencesDialog.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_Project.cpp">
@@ -140,11 +140,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Project.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="Project.cpp">
-      <Filter>Source Files\Data\Project</Filter>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="SocialMenuBar.cpp">
-      <Filter>Source Files\Main Window\Menu Bar</Filter>
+    <ClCompile Include="GeneratedFiles\Release\moc_ProjectDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectPropertiesWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ProjectPropertiesWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_SocialMenuBar.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -152,20 +158,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SocialMenuBar.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SocialApplication.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_SocialSystemTray.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SocialApplication.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_SocialSystemTray.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="SocialApplication.cpp">
-      <Filter>Source Files\Main Window</Filter>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TabManager.cpp">
+      <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="PersonDialog.cpp">
-      <Filter>Source Files\Main Window</Filter>
-    </ClCompile>
-    <ClCompile Include="DockWidget_Base.cpp">
-      <Filter>Source Files\Main Window\Dock Widgets</Filter>
+    <ClCompile Include="GeneratedFiles\Release\moc_TabManager.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_Base.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -179,17 +182,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_Dashboard.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="ViewWidget_PersonInformation.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_PersonInformation.cpp">
+      <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="ViewWidget_Dashboard.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_PersonInformation.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="ViewWidget_Base.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_Base.cpp">
+      <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="DockWidget_People.cpp">
-      <Filter>Source Files\Main Window\Dock Widgets</Filter>
+    <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_Base.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_People.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -197,49 +200,64 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_People.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget_PersonInformation.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="DockWidget_Base.cpp">
+      <Filter>Source Files\Main Window\Dock Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget_PersonInformation.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="DockWidget_People.cpp">
+      <Filter>Source Files\Main Window\Dock Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_SocialOrganisation.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TabManager.cpp">
+    <ClCompile Include="ViewWidget_Base.cpp">
       <Filter>Source Files\Main Window\Views</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_TabManager.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="ViewWidget_Dashboard.cpp">
+      <Filter>Source Files\Main Window\Views</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_TabManager.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ViewWidget_PersonInformation.cpp">
+      <Filter>Source Files\Main Window\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="TabManager.cpp">
+      <Filter>Source Files\Main Window</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonDialog.cpp">
+      <Filter>Source Files\Main Window\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="ProjectDialog.cpp">
       <Filter>Source Files\Main Window\Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ProjectDialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files\People</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ProjectDialog.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="ProjectInfo.cpp">
+      <Filter>Source Files\Data\Project</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_PreferencesDialog.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="Project.cpp">
+      <Filter>Source Files\Data\Project</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_PreferencesDialog.cpp">
-      <Filter>Generated Files\Release</Filter>
+    <ClCompile Include="SocialMenuBar.cpp">
+      <Filter>Source Files\Main Window\Menu Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="SocialSystemTray.cpp">
+      <Filter>Source Files\Main Window\System Tray</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialisableObject.cpp">
+      <Filter>Source Files\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="PreferencesDialog.cpp">
       <Filter>Source Files\Main Window\Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="ProjectPropertiesWidget.cpp">
+      <Filter>Source Files\Main Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="PersonDialog.h">
-      <Filter>Header Files\Main Window\Dock Widgets</Filter>
+    <CustomBuild Include="SocialApplication.h">
+      <Filter>Header Files\Main Window</Filter>
     </CustomBuild>
-    <CustomBuild Include="ProjectPropertiesWidget.h">
-      <Filter>Header Files\Dialogs\Project</Filter>
+    <CustomBuild Include="SocialOrganisation.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DockWidget_People.h">
+      <Filter>Header Files\Main Window\Dock Widgets</Filter>
     </CustomBuild>
     <CustomBuild Include="DockWidget_Base.h">
       <Filter>Header Files\Main Window\Dock Widgets</Filter>
@@ -247,14 +265,14 @@
     <CustomBuild Include="Project.h">
       <Filter>Header Files\Data\Project</Filter>
     </CustomBuild>
-    <CustomBuild Include="SocialMenuBar.h">
-      <Filter>Header Files\Main Window\Menu Bar</Filter>
+    <CustomBuild Include="PersonDialog.h">
+      <Filter>Header Files\Dialogs</Filter>
     </CustomBuild>
-    <CustomBuild Include="SocialApplication.h">
-      <Filter>Header Files\Main Window</Filter>
+    <CustomBuild Include="PreferencesDialog.h">
+      <Filter>Header Files\Dialogs</Filter>
     </CustomBuild>
-    <CustomBuild Include="ViewWidget_PersonInformation.h">
-      <Filter>Header Files\Main Window\Central Widget\Views</Filter>
+    <CustomBuild Include="ProjectPropertiesWidget.h">
+      <Filter>Header Files\Main Window\Central Widget</Filter>
     </CustomBuild>
     <CustomBuild Include="ViewWidget_Base.h">
       <Filter>Header Files\Main Window\Central Widget\Views</Filter>
@@ -262,33 +280,33 @@
     <CustomBuild Include="ViewWidget_Dashboard.h">
       <Filter>Header Files\Main Window\Central Widget\Views</Filter>
     </CustomBuild>
-    <CustomBuild Include="DockWidget_People.h">
-      <Filter>Header Files\Main Window\Dock Widgets</Filter>
-    </CustomBuild>
-    <CustomBuild Include="SocialOrganisation.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="TabManager.h">
+    <CustomBuild Include="ViewWidget_PersonInformation.h">
       <Filter>Header Files\Main Window\Central Widget\Views</Filter>
     </CustomBuild>
-    <CustomBuild Include="Person.h">
-      <Filter>Header Files\People</Filter>
+    <CustomBuild Include="TabManager.h">
+      <Filter>Header Files\Main Window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SocialSystemTray.h">
+      <Filter>Header Files\Main Window\System Tray</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SocialMenuBar.h">
+      <Filter>Header Files\Main Window\Menu Bar</Filter>
     </CustomBuild>
     <CustomBuild Include="ProjectDialog.h">
       <Filter>Header Files\Dialogs\Project</Filter>
     </CustomBuild>
-    <CustomBuild Include="PreferencesDialog.h">
-      <Filter>Header Files\Dialogs</Filter>
-    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SerialisableObject.h">
+    <ClInclude Include="FileIO.h">
       <Filter>Header Files\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="ProjectInfo.h">
       <Filter>Header Files\Data\Project</Filter>
     </ClInclude>
-    <ClInclude Include="FileIO.h">
+    <ClInclude Include="Person.h">
+      <Filter>Header Files\People</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialisableObject.h">
       <Filter>Header Files\FileIO</Filter>
     </ClInclude>
   </ItemGroup>

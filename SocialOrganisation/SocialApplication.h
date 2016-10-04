@@ -9,6 +9,7 @@ class Project;
 
 class TabManager;
 class SocialMenuBar;
+class SocialSystemTray;
 
 class DockWidget_Base;
 
@@ -23,6 +24,10 @@ public:
 public slots:
 	void close();
 
+//signals:
+//	void systemTrayEnabled(bool enabled);
+	virtual void closeEvent(QCloseEvent *event);
+
 private:		
 	void createDockWindows();
 	void createActions();
@@ -30,6 +35,7 @@ private:
 private:
 	Project				 * m_proj;
 	SocialMenuBar		 * m_menuBar;
+	SocialSystemTray	 * m_trayIcon;
 	TabManager			 * m_tabManager;
 
 	QMap<QString,DockWidget_Base*> m_dockViews;
