@@ -33,12 +33,6 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Header Files\People">
-      <UniqueIdentifier>{e8644142-5c5f-4b4e-a7ea-91eb4e7a7761}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\People">
-      <UniqueIdentifier>{499bd797-dc4b-4e4c-8e72-ecb3ddce4131}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Main Window">
       <UniqueIdentifier>{01109160-799f-4405-874b-594a1f3f784c}</UniqueIdentifier>
     </Filter>
@@ -101,6 +95,30 @@
     </Filter>
     <Filter Include="Source Files\Main Window\System Tray">
       <UniqueIdentifier>{e743b980-9c7a-48ad-b285-2d519b7bf3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Entities">
+      <UniqueIdentifier>{bde14665-c635-45c9-9054-e2889783fe8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Entities\People">
+      <UniqueIdentifier>{e8644142-5c5f-4b4e-a7ea-91eb4e7a7761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Entities\Groups">
+      <UniqueIdentifier>{ccfb4000-ea27-47e2-b712-4d01563fdf3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Entities">
+      <UniqueIdentifier>{2dbc1793-25cf-48bf-9d9f-33e6c75f2649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Entities\Groups">
+      <UniqueIdentifier>{f10483cf-74fb-4c63-9a17-06693e60594a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Entities\People">
+      <UniqueIdentifier>{499bd797-dc4b-4e4c-8e72-ecb3ddce4131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Relationships">
+      <UniqueIdentifier>{825668d5-459f-4258-80e6-af4b904fc19c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Relationships">
+      <UniqueIdentifier>{2802e262-5819-4483-869f-61715782359d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -225,7 +243,7 @@
       <Filter>Source Files\Main Window\Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="Person.cpp">
-      <Filter>Source Files\People</Filter>
+      <Filter>Source Files\Data\Entities\People</Filter>
     </ClCompile>
     <ClCompile Include="ProjectInfo.cpp">
       <Filter>Source Files\Data\Project</Filter>
@@ -247,6 +265,18 @@
     </ClCompile>
     <ClCompile Include="ProjectPropertiesWidget.cpp">
       <Filter>Source Files\Main Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Data\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Group.cpp">
+      <Filter>Source Files\Data\Entities\Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="Relationship.cpp">
+      <Filter>Source Files\Data\Relationships</Filter>
+    </ClCompile>
+    <ClCompile Include="IdentifiableObject.cpp">
+      <Filter>Source Files\FileIO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,9 +334,21 @@
       <Filter>Header Files\Data\Project</Filter>
     </ClInclude>
     <ClInclude Include="Person.h">
-      <Filter>Header Files\People</Filter>
+      <Filter>Header Files\Data\Entities\People</Filter>
     </ClInclude>
     <ClInclude Include="SerialisableObject.h">
+      <Filter>Header Files\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Data\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Group.h">
+      <Filter>Header Files\Data\Entities\Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="Relationship.h">
+      <Filter>Header Files\Data\Relationships</Filter>
+    </ClInclude>
+    <ClInclude Include="IdentifiableObject.h">
       <Filter>Header Files\FileIO</Filter>
     </ClInclude>
   </ItemGroup>

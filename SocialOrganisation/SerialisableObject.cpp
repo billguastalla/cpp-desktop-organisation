@@ -6,18 +6,3 @@ SerialisableObject::SerialisableObject(SerialisableObject * parent) : m_modified
 {
 	m_parent = parent;
 }
-
-//void SerialisableObject::__parseFromFile()
-//{
-//	m_modified = false;
-//
-//	
-//}
-//
-//void SerialisableObject::__writeToFile()
-//{
-//	m_modified = false;
-//
-//
-//}
-//

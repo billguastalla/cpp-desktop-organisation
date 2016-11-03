@@ -58,7 +58,6 @@ protected:
 	SerialisableObject			 * m_parent;
 	virtual QList<SerialisableObject*> m_children() = 0; // Should return all serialisable objects held by the derived class.
 
-
 private:
 	bool m_modified;
 };

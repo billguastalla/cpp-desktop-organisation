@@ -10,6 +10,8 @@
 ViewWidget_Dashboard::ViewWidget_Dashboard(Project * proj, TabManager * app)
 	: ViewWidget_Base(proj,app)
 {
+	m_id = "Dashboard"; /*<-- See header..*/
+
 	m_peopleCountLabel = new QLabel("Total People:",this);
 	m_peopleCountEdit = new QLineEdit(this);
 

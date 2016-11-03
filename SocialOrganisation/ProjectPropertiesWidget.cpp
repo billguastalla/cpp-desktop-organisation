@@ -34,7 +34,7 @@ ProjectPropertiesWidget::ProjectPropertiesWidget(ProjectInfo * proj, QWidget * p
 void ProjectPropertiesWidget::save()
 {
 	m_project->projectName() = m_nameEdit->text();
-	m_project->id() = m_idEdit->text();
+	m_project->setId(m_idEdit->text());
 	m_project->fileDirectory() = m_fileDirectoryEdit->text();
 	m_project->author() = m_authorEdit->text();
 	m_project->notes() = m_notesEdit->toPlainText();

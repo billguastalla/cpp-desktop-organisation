@@ -26,3 +26,7 @@ ViewWidget_PersonInformation::ViewWidget_PersonInformation(Person * pers, Projec
 	setLayout(lay);
 }
 
+const QString & ViewWidget_PersonInformation::id() const
+{
+	return p_pers->id();
+} /*<--- Returns the ID of the object they hold.  */

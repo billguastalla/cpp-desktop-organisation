@@ -28,7 +28,7 @@ SocialApplication::SocialApplication(QWidget *parent)
 {
 	QIcon ico("C:\\GIT\\SocialOrganisation\\SocialOrganisation\\images\\SocialOrganisation.png"); // This should be relative to the executable.
 	setWindowIcon(ico);
-	setMinimumSize(1280,720);
+	setMinimumSize(1280, 720);
 	setWindowTitle("Social Organisation");
 
 
@@ -37,11 +37,11 @@ SocialApplication::SocialApplication(QWidget *parent)
 	m_menuBar = new SocialMenuBar(m_proj, this);
 	setMenuBar(m_menuBar);
 
-	m_tabManager = new TabManager(m_proj,this);
+	m_tabManager = new TabManager(m_proj, this);
 	setCentralWidget(m_tabManager);
 
 	createDockWindows();
-	
+
 	m_trayIcon = new SocialSystemTray(this);
 	m_trayIcon->show();
 
@@ -54,32 +54,29 @@ SocialApplication::~SocialApplication()
 
 void SocialApplication::createDockWindows()
 {
-	m_dockViews.insert("People",new DockWidget_People(m_proj,this));
+	m_dockViews.insert("People", new DockWidget_People(m_proj, this));
 
 	QDockWidget * peopleDock = new QDockWidget(tr("People"), this);
 	peopleDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	peopleDock->setWidget(m_dockViews["People"]);
 	addDockWidget(Qt::LeftDockWidgetArea, peopleDock);
 
-	connect(m_dockViews["People"],SIGNAL(editPerson(Person*, const QString&)), m_tabManager, SLOT(createTab(Person*, const QString&)));
+	connect(m_dockViews["People"], SIGNAL(editPerson(Person*, const QString&)), m_tabManager, SLOT(createTab(Person*, const QString&)));
 
 }
 
 void SocialApplication::closeEvent(QCloseEvent *event)
 {
-    if (m_trayIcon->isVisible()) {
-        QMessageBox::information(this, tr("Systray"),
-                                 tr("The program will keep running in the "
-                                    "system tray. To terminate the program, "
-                                    "choose <b>Quit</b> in the context menu "
-                                    "of the system tray entry."));
-        hide();
-        event->ignore();
-    }
+	if (isVisible())
+		if (m_trayIcon->isVisible())
+		{
+			hide();
+			event->ignore();
+		}
 }
 
 void SocialApplication::close()
 {
-	if(m_proj->closeProject())
+	if (m_proj->closeProject())
 		QMainWindow::close();
 }

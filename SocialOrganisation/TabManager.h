@@ -18,7 +18,8 @@ public slots:
 	void createTab(Person * pers, const QString & id);
 	void createDashboard();
 	//void createTab(/* ... ,*/QString id);
-	void closeTab(const QString & id);
+	//void closeTab(const QString & id);
+	void closeTab(int index);
 
 	private slots:
 		void enableTabManager(ProjectState state);

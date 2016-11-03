@@ -1,20 +1,19 @@
 #include "Person.h"
+#include "Group.h"
 #include "ProjectInfo.h"
 #include <quuid.h>
 #include <qxmlstream.h>
 
-Person::Person(ProjectInfo * pInfo, QString firstName, QString lastName) : SerialisableObject(pInfo)
+Person::Person(ProjectInfo * pInfo, QString firstName, QString lastName) : Entity(pInfo)
 {
 	m_firstName = firstName, m_lastName = lastName;
-	m_id = QUuid::createUuid().toString();
 }
 
-Person::Person(const Person & other) : SerialisableObject(other.m_projInfo)
+Person::Person(const Person & other) : Entity(other.p_projInfo)
 {
-	m_projInfo = other.m_projInfo;
+	p_projInfo = other.p_projInfo;
 	m_firstName = other.m_firstName;
 	m_lastName = other.m_lastName;
-	m_id = other.m_id;
 }
 
 // ----- === Serialisation === -----
@@ -23,7 +22,7 @@ bool Person::__writeToFile(QXmlStreamWriter & writer) // Save
 {
 	writer.writeStartElement("Person");
 	// Person ID
-	writer.writeAttribute("PersonID",m_id);
+	__writeID(writer);
 	// First Name
 	writer.writeAttribute("FirstName",m_firstName);
 	// Last Name
@@ -44,7 +43,7 @@ bool Person::__parseFromFile(QXmlStreamReader & reader) // Load
 	QXmlStreamAttributes personAttributes = reader.attributes();
 
 	// Person ID
-	m_id = personAttributes.value("PersonID").toString();
+	__parseID(personAttributes);
 	// First Name
 	m_firstName = personAttributes.value("FirstName").toString();
 	// Last Name
@@ -55,6 +54,21 @@ bool Person::__parseFromFile(QXmlStreamReader & reader) // Load
 
 	// There may be something better to use..
 	return (m_id.count() != 0);
+}
+
+void Person::addGroup(Group * grp)
+{
+	p_groups.insert(grp->id(), grp);
+}
+
+void Person::removeGroup(Group * grp)
+{
+	p_groups.remove(grp->id());
+}
+
+bool Person::hasGroup(Group * grp)
+{
+	return p_groups.contains(grp->id());
 }
 
 QList<SerialisableObject*> Person::m_children()

@@ -9,7 +9,7 @@ class ViewWidget_PersonInformation : public ViewWidget_Base
 	Q_OBJECT
 public:
 	ViewWidget_PersonInformation(Person * pers, Project * proj, TabManager * parent);
-
+	const virtual QString & id() const;
 private:
 	Person * p_pers;
 };

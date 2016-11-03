@@ -118,7 +118,7 @@ bool Project::closeProject(bool silent)
 		m_pInfo = nullptr;
 		return true;
 	}
-	return false;
+	return true;
 }
 
 bool Project::warnSave()

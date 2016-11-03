@@ -16,6 +16,7 @@ TabManager::TabManager(Project * proj, SocialApplication * parent)
 	setTabsClosable(true);
 	setTabShape(QTabWidget::TabShape::Triangular);
 	connect(m_proj,SIGNAL(projectStateChanged(ProjectState)),this,SLOT(enableTabManager(ProjectState)));
+	connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(closeTab(int)));
 }
 
 void TabManager::createTab(Person * pers, const QString & id)
@@ -27,15 +28,25 @@ void TabManager::createTab(Person * pers, const QString & id)
 		addTab(tab,pers->fullName());
 	}
 }
+//
+//void TabManager::closeTab(const QString & id)
+//{
+//	ViewWidget_Base * tab = m_tabs[id];
+//	if(tab != nullptr)
+//	{
+//		tab->close(); /*<---- This doesn't look right.*/
+//		m_tabs.remove(id);
+//		delete tab;
+//	}
+//}
 
-void TabManager::closeTab(const QString & id)
+void TabManager::closeTab(int index)
 {
-	ViewWidget_Base * tab = m_tabs[id];
-	if(tab != nullptr)
+	ViewWidget_Base * currentTab = dynamic_cast<ViewWidget_Base*>(widget(index));
+	if (currentTab != nullptr)
 	{
-		tab->close(); /*<---- This doesn't look right.*/
-		m_tabs.remove(id);
-		delete tab;
+		m_tabs.remove(currentTab->id());
+		removeTab(index);
 	}
 }
 
@@ -44,8 +55,8 @@ void TabManager::createDashboard()
 	if(!m_tabs.contains("Dashboard"))
 	{
 		ViewWidget_Dashboard * dashboard = new ViewWidget_Dashboard(m_proj,this);
-		m_tabs.insert("Dashboard",dashboard);
-		addTab(dashboard,"Dashboard");
+		m_tabs.insert(dashboard->id(),dashboard);
+		addTab(dashboard,dashboard->id());
 	}
 }
 
