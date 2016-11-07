@@ -13,12 +13,11 @@ class Person;
 		-> Should be able to search people/groups. Should be able to expand & find associated people/groups..
 */
 
-class DockWidget_People : public DockWidget_Base
+class DockWidget_Explorer : public DockWidget_Base
 {
 	Q_OBJECT
 public:
-	DockWidget_People(Project * proj, QWidget * parent = nullptr);
-
+	DockWidget_Explorer(Project * proj, QWidget * parent = nullptr);
 
 public slots:
 	void addPerson();
@@ -32,7 +31,5 @@ signals:
 private:
 	QPushButton * m_addPerson;
 	QPushButton * m_removePerson;
-
-	QListWidget * m_personList;
 };
 

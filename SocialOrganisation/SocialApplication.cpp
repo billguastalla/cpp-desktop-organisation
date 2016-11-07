@@ -2,7 +2,7 @@
 #include "SocialMenuBar.h"
 #include "SocialSystemTray.h"
 
-#include "DockWidget_People.h"
+#include "DockWidget_Explorer.h"
 
 #include "PreferencesDialog.h"
 
@@ -54,14 +54,14 @@ SocialApplication::~SocialApplication()
 
 void SocialApplication::createDockWindows()
 {
-	m_dockViews.insert("People", new DockWidget_People(m_proj, this));
+	m_dockViews.insert("Explorer", new DockWidget_Explorer(m_proj, this));
 
-	QDockWidget * peopleDock = new QDockWidget(tr("People"), this);
+	QDockWidget * peopleDock = new QDockWidget(tr("Explorer"), this);
 	peopleDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-	peopleDock->setWidget(m_dockViews["People"]);
+	peopleDock->setWidget(m_dockViews["Explorer"]);
 	addDockWidget(Qt::LeftDockWidgetArea, peopleDock);
 
-	connect(m_dockViews["People"], SIGNAL(editPerson(Person*, const QString&)), m_tabManager, SLOT(createTab(Person*, const QString&)));
+	connect(m_dockViews["Explorer"], SIGNAL(editPerson(Person*, const QString&)), m_tabManager, SLOT(createTab(Person*, const QString&)));
 
 }
 

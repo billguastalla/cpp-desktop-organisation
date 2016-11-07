@@ -24,9 +24,10 @@ void ProjectInfo::clear()
 bool ProjectInfo::__parseFromFile(QXmlStreamReader & reader)
 {
 	clear();
+
 	while (!reader.isEndDocument() && !reader.hasError())
 	{
-		reader.readNextStartElement();
+		reader.readNext();
 
 		if (reader.name() == "Project")
 		{
@@ -39,25 +40,33 @@ bool ProjectInfo::__parseFromFile(QXmlStreamReader & reader)
 			m_author = projectAttributes.value("Author").toString();
 			m_notes = projectAttributes.value("Notes").toString();
 
-			while (!reader.hasError() && !(reader.isEndElement() && (reader.text() == "Person")))
+			while (!(reader.name() == "Project" && reader.isEndElement()))
 			{
 				reader.readNext();
-				if (reader.isStartElement() && reader.name() == "Person")
+
+				if (reader.name() == "People")
 				{
-					// At this point, you may consider changing the constructor of
-					// each serialisable object so that it can serialise on construction.
-					// This is dangerous I guess, have a think about it.
-					Person * p = new Person(this, "", "");
-					if (p->__parseFromFile(reader))
-						m_people.insert(p->id(), p);
-					else
-						return false;
+					while (!(reader.name() == "People" && reader.isEndElement()))
+					{
+						reader.readNext();
+						if (reader.isStartElement() && reader.name() == "Person")
+						{
+							Person * p = new Person(this, "", "");
+							if (p->__parseFromFile(reader))
+								m_people.insert(p->id(), p);
+							else
+								delete p;
+						}
+					}
 				}
 			}
 		}
+
 	}
 
-	return (m_id.count() != 0 && !reader.hasError());
+	bool idExists = m_id.count() != 0;
+	bool readerError = reader.hasError();
+	return (idExists && !readerError);
 }
 
 bool ProjectInfo::__writeToFile(QXmlStreamWriter & writer)

@@ -60,9 +60,6 @@
     <Filter Include="Header Files\Data\Project">
       <UniqueIdentifier>{a677759e-89cd-480f-9fdc-f3800f4934d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Main Window\Views">
-      <UniqueIdentifier>{ca36758b-344b-454e-a870-fd7da30f6c7d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Dialogs">
       <UniqueIdentifier>{28ca7002-c114-4fa0-891a-71228443903a}</UniqueIdentifier>
     </Filter>
@@ -71,9 +68,6 @@
     </Filter>
     <Filter Include="Header Files\Main Window\Central Widget">
       <UniqueIdentifier>{becba62c-9a43-470a-9066-565072cd7754}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Main Window\Central Widget\Views">
-      <UniqueIdentifier>{8278a87a-c950-46ba-8696-3a6936d08146}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Data">
       <UniqueIdentifier>{9d516abe-16bf-4acf-b7f7-118d0609c568}</UniqueIdentifier>
@@ -119,6 +113,27 @@
     </Filter>
     <Filter Include="Header Files\Data\Relationships">
       <UniqueIdentifier>{2802e262-5819-4483-869f-61715782359d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main Window\Central Views">
+      <UniqueIdentifier>{ca36758b-344b-454e-a870-fd7da30f6c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Main Window\Central Widget\Central Views">
+      <UniqueIdentifier>{8278a87a-c950-46ba-8696-3a6936d08146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Data\Explorer">
+      <UniqueIdentifier>{f72e8e2d-3eb4-4d8e-a82e-8286e0a769f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Explorer">
+      <UniqueIdentifier>{8b7970c7-ffd9-4dde-a20e-262e36e13653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Explorer\Model &amp; View">
+      <UniqueIdentifier>{efec4ea2-bb4d-48f6-929d-97b840665ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Explorer\Filter">
+      <UniqueIdentifier>{448de279-c2bd-453c-919e-052f90b0ba07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data\Explorer\Search">
+      <UniqueIdentifier>{2ea04e3c-b4a3-45e1-a2ca-f57901786e76}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -212,26 +227,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_Base.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_People.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_People.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="DockWidget_Base.cpp">
       <Filter>Source Files\Main Window\Dock Widgets</Filter>
     </ClCompile>
-    <ClCompile Include="DockWidget_People.cpp">
-      <Filter>Source Files\Main Window\Dock Widgets</Filter>
-    </ClCompile>
     <ClCompile Include="ViewWidget_Base.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+      <Filter>Source Files\Main Window\Central Views</Filter>
     </ClCompile>
     <ClCompile Include="ViewWidget_Dashboard.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+      <Filter>Source Files\Main Window\Central Views</Filter>
     </ClCompile>
     <ClCompile Include="ViewWidget_PersonInformation.cpp">
-      <Filter>Source Files\Main Window\Views</Filter>
+      <Filter>Source Files\Main Window\Central Views</Filter>
     </ClCompile>
     <ClCompile Include="TabManager.cpp">
       <Filter>Source Files\Main Window</Filter>
@@ -278,6 +284,48 @@
     <ClCompile Include="IdentifiableObject.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
+    <ClCompile Include="DockWidget_Explorer.cpp">
+      <Filter>Source Files\Main Window\Dock Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DockWidget_Explorer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DockWidget_Explorer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerModel.cpp">
+      <Filter>Source Files\Data\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerModelItem.cpp">
+      <Filter>Source Files\Data\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerView.cpp">
+      <Filter>Source Files\Data\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ExplorerSearchBar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ExplorerSearchBar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerSearchProxyModel.cpp">
+      <Filter>Header Files\Data\Explorer\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplorerSearchBar.cpp">
+      <Filter>Header Files\Data\Explorer\Search</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ExplorerModel.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ExplorerModel.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ExplorerView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ExplorerView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="SocialApplication.h">
@@ -285,9 +333,6 @@
     </CustomBuild>
     <CustomBuild Include="SocialOrganisation.qrc">
       <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="DockWidget_People.h">
-      <Filter>Header Files\Main Window\Dock Widgets</Filter>
     </CustomBuild>
     <CustomBuild Include="DockWidget_Base.h">
       <Filter>Header Files\Main Window\Dock Widgets</Filter>
@@ -305,13 +350,13 @@
       <Filter>Header Files\Main Window\Central Widget</Filter>
     </CustomBuild>
     <CustomBuild Include="ViewWidget_Base.h">
-      <Filter>Header Files\Main Window\Central Widget\Views</Filter>
+      <Filter>Header Files\Main Window\Central Widget\Central Views</Filter>
     </CustomBuild>
     <CustomBuild Include="ViewWidget_Dashboard.h">
-      <Filter>Header Files\Main Window\Central Widget\Views</Filter>
+      <Filter>Header Files\Main Window\Central Widget\Central Views</Filter>
     </CustomBuild>
     <CustomBuild Include="ViewWidget_PersonInformation.h">
-      <Filter>Header Files\Main Window\Central Widget\Views</Filter>
+      <Filter>Header Files\Main Window\Central Widget\Central Views</Filter>
     </CustomBuild>
     <CustomBuild Include="TabManager.h">
       <Filter>Header Files\Main Window</Filter>
@@ -324,6 +369,18 @@
     </CustomBuild>
     <CustomBuild Include="ProjectDialog.h">
       <Filter>Header Files\Dialogs\Project</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DockWidget_Explorer.h">
+      <Filter>Header Files\Main Window\Dock Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ExplorerModel.h">
+      <Filter>Header Files\Data\Explorer\Model &amp; View</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ExplorerSearchBar.h">
+      <Filter>Header Files\Data\Explorer\Search</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ExplorerView.h">
+      <Filter>Header Files\Data\Explorer\Model &amp; View</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +407,12 @@
     </ClInclude>
     <ClInclude Include="IdentifiableObject.h">
       <Filter>Header Files\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplorerModelItem.h">
+      <Filter>Header Files\Data\Explorer\Model &amp; View</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplorerSearchProxyModel.h">
+      <Filter>Header Files\Data\Explorer\Filter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

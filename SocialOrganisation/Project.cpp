@@ -11,6 +11,8 @@
 
 #include <qxmlstream.h>
 
+#include <cassert>
+
 Project::Project(SocialApplication * parent)
 	: SerialisableObject(nullptr), QObject(parent),
 	m_pInfo(nullptr), m_state(ProjectState::FileClosed), m_currentPath()
@@ -55,17 +57,24 @@ bool Project::openFromFile(bool silent)
 			return false;
 		}
 
-		m_pInfo = new ProjectInfo(this);
+		assert(m_pInfo == nullptr); /*<-- pInfo should be deleted here.*/
+
+		ProjectInfo * pInfo_Open = new ProjectInfo(this);
+
 		QXmlStreamReader reader (&a);
-		if(__parseFromFile(reader))
+		if(pInfo_Open->__parseFromFile(reader)) /*<--- Bug: here if */
 		{
+			m_pInfo = pInfo_Open;
 			m_currentPath = fileName;
 			m_state = ProjectState::FileOpen;
 			emit projectStateChanged(m_state);
 			return true;
 		}
-		delete m_pInfo;
-		return false;
+		else
+		{
+			delete pInfo_Open;
+			return false;
+		}
 	}
 	return false;
 }
