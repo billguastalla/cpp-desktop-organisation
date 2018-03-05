@@ -17,8 +17,6 @@ class Group;
 
 */
 
-
-
 class Person : public Entity
 {
 public:

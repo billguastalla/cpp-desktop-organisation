@@ -4,6 +4,7 @@
 
 #include "ProjectDialog.h"
 #include "PreferencesDialog.h"
+#include "CreateEntityDialog.h"
 
 SocialMenuBar::SocialMenuBar(Project * proj, SocialApplication * parent)
 	: QMenuBar(parent),
@@ -60,6 +61,11 @@ void SocialMenuBar::createActions()
 	m_projectActions[ProjectActions::Properties] = new QAction(tr("&Properties"), this);
 	m_projectActions[ProjectActions::Properties]->setStatusTip(tr("Properties of the current Project"));
 	connect(m_projectActions[ProjectActions::Properties], &QAction::triggered, this, &SocialMenuBar::propertiesEdit);
+
+	m_projectActions[ProjectActions::AddEntity] = new QAction(tr("&Add Entity..."), this);
+	m_projectActions[ProjectActions::AddEntity]->setStatusTip(tr("Create a Person or Group.."));
+	connect(m_projectActions[ProjectActions::AddEntity], &QAction::triggered, this, &SocialMenuBar::createEntity);
+
 }
 
 void SocialMenuBar::createMenus()
@@ -98,6 +104,12 @@ void SocialMenuBar::propertiesEdit()
 	// Open properties for the current project.
 	ProjectDialog * dlg = new ProjectDialog(m_proj->data(), this);
 	dlg->exec();
+}
+
+void SocialMenuBar::createEntity()
+{
+	CreateEntityDialog * createEntityDlg = new CreateEntityDialog{ m_proj->data(),this };
+	createEntityDlg->exec();
 }
 
 void SocialMenuBar::updateMenuBar(ProjectState state)

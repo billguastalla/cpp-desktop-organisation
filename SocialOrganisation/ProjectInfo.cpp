@@ -17,6 +17,7 @@ void ProjectInfo::clear()
 	m_id.clear();
 	m_notes.clear();
 	m_people.clear(); // <-- Need to delete people!
+	m_groups.clear();
 	m_projectName.clear();
 }
 

@@ -21,7 +21,8 @@ enum class EditActions
 
 enum class ProjectActions
 {
-	Properties
+	Properties,
+	AddEntity
 };
 
 class SocialMenuBar : public QMenuBar
@@ -49,6 +50,7 @@ private:
 
 		void preferencesEdit();
 		void propertiesEdit();
+		void createEntity();
 private:
 	Project				 * m_proj;
 	SocialApplication	 * m_app;
