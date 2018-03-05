@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -15,29 +15,77 @@
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /><ItemDefinitionGroup><ClCompile><MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile></ItemDefinitionGroup><PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')"><QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild></PropertyGroup><Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')"><Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." /></Target><ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')"><Import Project="$(QtMsBuild)\qt.props" /></ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Windows</SubSystem>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateDebugInformation>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <InputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FullPath)</InputFile>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">output</DynamicSource>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+      <QTDIR Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)</QTDIR>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
-  <ImportGroup Label="PropertySheets" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_BLUETOOTH_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtBluetooth;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -48,32 +96,33 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;Qt5Bluetoothd.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Multimediad.lib;Qt5MultimediaWidgetsd.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;Qt5Widgetsd.lib;Qt5Xmld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-  <QtMoc><QTDIR>$(QTDIR)</QTDIR><InputFile>%(FullPath)</InputFile><OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile><Define>UNICODE;WIN32;WIN64;QT_DLL;QT_BLUETOOTH_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB</Define><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtBluetooth;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml</IncludePath></QtMoc><QtRcc><InputFile>%(FullPath)</InputFile><QTDIR>$(QTDIR)</QTDIR><OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile><InitFuncName>%(Filename)</InitFuncName><Compression>default</Compression><NoCompression>true</NoCompression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription></QtRcc></ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_BLUETOOTH_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;$(QTDIR)\include\QtBluetooth;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat />
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;Qt5Bluetooth.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5MultimediaWidgets.lib;Qt5OpenGL.lib;opengl32.lib;glu32.lib;Qt5Widgets.lib;Qt5Xml.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  <QtMoc><QTDIR>$(QTDIR)</QTDIR><InputFile>%(FullPath)</InputFile><OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile><Define>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_BLUETOOTH_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB</Define><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtBluetooth;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml</IncludePath></QtMoc><QtRcc><QTDIR>$(QTDIR)</QTDIR><InputFile>%(FullPath)</InputFile><OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile><InitFuncName>%(Filename)</InitFuncName><Compression>default</Compression><NoCompression>true</NoCompression><ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription></QtRcc></ItemDefinitionGroup>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CreateEntityDialog.cpp" />
     <ClCompile Include="DockWidget_Base.cpp" />
     <ClCompile Include="DockWidget_Explorer.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="ExplorerModel.cpp" />
+    <ClCompile Include="ExplorerModelItem.cpp" />
     <ClCompile Include="ExplorerSearchBar.cpp" />
     <ClCompile Include="ExplorerSearchProxyModel.cpp" />
+    <ClCompile Include="ExplorerView.cpp" />
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="IdentifiableObject.cpp" />
@@ -85,9 +134,6 @@
     <ClCompile Include="ProjectDialog.cpp" />
     <ClCompile Include="ProjectInfo.cpp" />
     <ClCompile Include="ProjectPropertiesWidget.cpp" />
-    <ClCompile Include="ExplorerModel.cpp" />
-    <ClCompile Include="ExplorerModelItem.cpp" />
-    <ClCompile Include="ExplorerView.cpp" />
     <ClCompile Include="Relationship.cpp" />
     <ClCompile Include="SerialisableObject.cpp" />
     <ClCompile Include="SocialApplication.cpp" />
@@ -100,209 +146,51 @@
     <ClCompile Include="ViewWidget_PersonInformation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="SocialApplication.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
+    <QtUic Include="SocialOrganisation.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="SocialOrganisation.qrc">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtRcc>
+    <QtRcc Include="SocialOrganisation.qrc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CreateEntityDialog.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="Task.h" />
-    <QtMoc Include="ExplorerSearchBar.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
+    <ClInclude Include="ExplorerModelItem.h" />
     <ClInclude Include="ExplorerSearchProxyModel.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="Group.h" />
     <ClInclude Include="IdentifiableObject.h" />
     <ClInclude Include="Person.h" />
-    <QtMoc Include="DockWidget_Explorer.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="DockWidget_Base.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <ClInclude Include="FileIO.h" />
     <ClInclude Include="ProjectInfo.h" />
-    <QtMoc Include="ExplorerModel.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <ClInclude Include="ExplorerModelItem.h" />
-    <QtMoc Include="ExplorerView.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
     <ClInclude Include="Relationship.h" />
     <ClInclude Include="SerialisableObject.h" />
-    <QtMoc Include="ViewWidget_PersonInformation.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="ViewWidget_Dashboard.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="ViewWidget_Base.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="TabManager.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="SocialSystemTray.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="SocialMenuBar.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="ProjectPropertiesWidget.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="ProjectDialog.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="Project.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="PreferencesDialog.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
-    <QtMoc Include="PersonDialog.h">
-      
-      
-      
-      
-      
-      
-      
-      
-    </QtMoc>
+    <ClInclude Include="Task.h" />
+    <QtMoc Include="ViewWidget_PersonInformation.h" />
+    <QtMoc Include="ViewWidget_Dashboard.h" />
+    <QtMoc Include="ViewWidget_Base.h" />
+    <QtMoc Include="TabManager.h" />
+    <QtMoc Include="SocialSystemTray.h" />
+    <QtMoc Include="SocialMenuBar.h" />
+    <QtMoc Include="SocialApplication.h" />
+    <QtMoc Include="ProjectPropertiesWidget.h" />
+    <QtMoc Include="ProjectDialog.h" />
+    <QtMoc Include="Project.h" />
+    <QtMoc Include="PreferencesDialog.h" />
+    <QtMoc Include="PersonDialog.h" />
+    <QtMoc Include="ExplorerView.h" />
+    <QtMoc Include="ExplorerSearchBar.h" />
+    <QtMoc Include="ExplorerModel.h" />
+    <QtMoc Include="DockWidget_Explorer.h" />
+    <QtMoc Include="DockWidget_Base.h" />
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')"><Import Project="$(QtMsBuild)\qt.targets" /></ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="5.7.0" MocOptions="" />
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_Win32="msvc2015" MocOptions="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
