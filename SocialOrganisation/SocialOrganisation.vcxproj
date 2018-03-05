@@ -146,9 +146,6 @@
     <ClCompile Include="ViewWidget_PersonInformation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="SocialOrganisation.ui" />
-  </ItemGroup>
-  <ItemGroup>
     <QtRcc Include="SocialOrganisation.qrc" />
   </ItemGroup>
   <ItemGroup>

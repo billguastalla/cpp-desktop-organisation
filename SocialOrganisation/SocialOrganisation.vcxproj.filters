@@ -246,11 +246,6 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="SocialOrganisation.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="FileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
